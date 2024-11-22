@@ -3,6 +3,7 @@ const TelegramBot = require("node-telegram-bot-api");
 const mongoose = require("mongoose");
 const axios = require("axios");
 const User = require("./models/User");
+const express = require('express');
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 
@@ -100,9 +101,16 @@ const sendWeatherUpdates = async () => {
       );
     }
   }
-
-
 };
-
 // Schedule Updates Every 6 Hours
 setInterval(sendWeatherUpdates, 6 * 60 * 60 * 1000);
+
+const app = express();
+
+const port =  3000;  
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
+
+
