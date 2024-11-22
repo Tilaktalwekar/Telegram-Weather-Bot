@@ -104,7 +104,7 @@ const sendWeatherUpdates = async () => {
   const express = require("express");
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT =  3000;
 
 // A simple route to make sure Render knows it's running
 app.get("/", (req, res) => {
